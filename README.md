@@ -11,6 +11,7 @@ Implemented logic to count footfall for a given video clip.
 
 ## Need to clone ByteTrack and Yolov5 repositories
 ```git clone https://github.com/ifzhang/ByteTrack.git```
+
 ```git clone https://github.com/ultralytics/yolov5.git```
 ## Directory structure:
 ### ByteTrack -> YoloV5 + handler.py + video_folder(videos)
