@@ -17,3 +17,4 @@ Implemented logic to count footfall for a given video clip.
 ### ByteTrack -> YoloV5 + handler.py + video_folder(videos)
 ### Script Execution
 ```python handler.py -vid_path (video path from script's directory)```
+### A JSON file with the coordinates for each bounding box is also created
