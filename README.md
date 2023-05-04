@@ -16,4 +16,4 @@ Implemented logic to count footfall for a given video clip.
 ## Directory structure:
 ### ByteTrack -> YoloV5 + handler.py + video_folder(videos)
 ### Script Execution
-```python handler.py -vid_path (video path from script's directory)
+```python handler.py -vid_path (video path from script's directory)```
