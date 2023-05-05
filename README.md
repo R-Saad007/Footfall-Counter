@@ -11,6 +11,7 @@ Implemented logic to count footfall for a given video clip.
 - People re-entering (same individual have similar track_id)
 
 ## Need to clone ByteTrack and Yolov5 repositories
+### ByteTrack
 ```git clone https://github.com/ifzhang/ByteTrack.git```
 
 ```pip install -r requirements.txt```
@@ -18,7 +19,7 @@ Implemented logic to count footfall for a given video clip.
 ```python3 setup.py develop```
 
 ```pip install cython_bbox```
-
+### YOLOv5
 ```git clone https://github.com/ultralytics/yolov5.git```
 
 ```pip install -r requirements.txt```
