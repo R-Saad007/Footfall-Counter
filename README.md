@@ -7,6 +7,7 @@ Implemented logic to count footfall for a given video clip.
 
 ## Cases Handled:
 - People entering
+- People exiting
 - People re-entering (same individual have similar track_id)
 
 ## Need to clone ByteTrack and Yolov5 repositories
