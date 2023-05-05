@@ -31,6 +31,7 @@ class handler():
         self.model = None                       # yolov5 model
         self.inside_ids = set()                 # set to store tracking ids of entered tracked objects
         self.vid_path = vid                     # video path
+        self.tracked_objs = set()               # set to store tracking ids of tracked objects once they enter
 
     def load_model(self):
         # loading pytorch yolov5 model for inference
@@ -133,13 +134,16 @@ class handler():
                     # calculating the bottom mid x coordinate
                     botxcoord = (xmin_coord+xmax_coord)/2.0
                     # counting logic
-                    if tracklet.track_id not in self.inside_ids:
+                    if tracklet.track_id in self.tracked_objs: # if object is already detected before (multiple entries by the same person)
+                        continue
+                    if tracklet.track_id not in self.inside_ids and tracklet.track_id not in self.tracked_objs: # entrance detection
                         # bounding the vertical coloumn for the designated region
                         if botxcoord > start_entrance[0] and botxcoord < end_entrance[0]:
                             if ymax_coord < end_entrance[1] and ymax_coord > start_entrance[1]:
                                 entrances += 1
-                                self.inside_ids.add(tracklet.track_id)  
-                    if tracklet.track_id in self.inside_ids:
+                                self.inside_ids.add(tracklet.track_id)
+                                self.tracked_objs.add(tracklet.track_id)
+                    if tracklet.track_id in self.inside_ids: # exit detection
                         # bounding the vertical coloumn for the designated region
                         if botxcoord > start_entrance[0] and botxcoord < end_entrance[0]:
                             if ymax_coord < end_exit[1] and ymax_coord > start_exit[1]:
@@ -196,6 +200,7 @@ class handler():
         self.model = None                                                   # yolov5 model
         self.inside_ids = self.inside_ids.clear()                           # set to store tracking ids of entered tracked objects
         self.vid_path = None                                                # video path
+        self.tracked_objs = self.tracked_objs.clear()                       # set to store tracking ids of tracked objects once they enter
         print("Handler destructor invoked!")
 
 # main function
