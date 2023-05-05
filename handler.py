@@ -134,8 +134,6 @@ class handler():
                     # calculating the bottom mid x coordinate
                     botxcoord = (xmin_coord+xmax_coord)/2.0
                     # counting logic
-                    if tracklet.track_id in self.tracked_objs: # if object is already detected before (multiple entries by the same person)
-                        continue
                     if tracklet.track_id not in self.inside_ids and tracklet.track_id not in self.tracked_objs: # entrance detection
                         # bounding the vertical coloumn for the designated region
                         if botxcoord > start_entrance[0] and botxcoord < end_entrance[0]:
@@ -149,6 +147,8 @@ class handler():
                             if ymax_coord < end_exit[1] and ymax_coord > start_exit[1]:
                                 exits += 1
                                 self.inside_ids.remove(tracklet.track_id)
+                    if tracklet.track_id in self.tracked_objs: # if object is already detected before (multiple entries by the same person)
+                        continue
             # visualizing output frame
             cv2.imshow("ByteTrack Output" , frame)
             '''Remove the statement below(only for testing purposes)'''
