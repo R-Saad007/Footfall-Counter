@@ -31,7 +31,7 @@ class handler():
         self.model = None                       # yolov5 model
         self.inside_ids = set()                 # set to store tracking ids of entered tracked objects
         self.vid_path = vid                     # video path
-        self.tracked_objs = set()               # set to store tracking ids of tracked objects once they enter
+        self.tracked_objs = set()               # set to store tracking ids for tracked objects to eliminate redundant count
 
     def load_model(self):
         # loading pytorch yolov5 model for inference
@@ -200,7 +200,7 @@ class handler():
         self.model = None                                                   # yolov5 model
         self.inside_ids = self.inside_ids.clear()                           # set to store tracking ids of entered tracked objects
         self.vid_path = None                                                # video path
-        self.tracked_objs = self.tracked_objs.clear()                       # set to store tracking ids of tracked objects once they enter
+        self.tracked_objs = self.tracked_objs.clear()                       # set to store tracking ids for tracked objects to eliminate redundant count
         print("Handler destructor invoked!")
 
 # main function
