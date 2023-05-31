@@ -1,4 +1,4 @@
-# Logic (handler.py):
+# Pytorch-YOLO Footfall Counter
 Implemented logic to count footfall for a given video clip.
 
 ## Simple Logic:
